@@ -27,6 +27,7 @@ SYSTEM_PROMPT = """
 *   **引用標記**：在引用了外部資訊的句子結尾，務必加上 [cite:N] 標記。
 *   **結尾**：在回答的最後，可以根據情況附上一個簡短的結語。
 """
+user_question = input('Ask me anything'+':')
 
 root_agent = Agent(
     model='gemini-2.5-flash',
@@ -35,6 +36,10 @@ root_agent = Agent(
     instruction=SYSTEM_PROMPT,
     tools=[google_search],
 )
+response = root_agent.run(user_question)
+print('AI Response:')
+print(response)
+
 
 # with DDGS() as ddgs:
 #     pprint([r for r in ddgs.text("大模型", region='cn-zh', max_results=10)])
