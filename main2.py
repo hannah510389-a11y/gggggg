@@ -37,3 +37,5 @@ print(" Generating summarized AI response...")
 response = root_agent.run(user_question)
 print("AI Response:")
 print(response)
+with open("response.md", "w", encoding="utf-8") as f:
+    f.write(response)
